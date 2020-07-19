@@ -12,7 +12,8 @@
     "postinstall": "node patch.js",
     "c-mig": "truffle compile && truffle migrate",
     "gan-cli": "ganache-cli -m 'puzzle crazy electric wide verify popular struggle latin genuine lawsuit thrive neck'",
-    "deploy-github-pages": "ng build --prod --baseHref='https://spreadzp.github.io/happy-number/'"
+    "deploy-github-pages": "ng build --prod --baseHref='https://spreadzp.github.io/happy-number/'",
+    "deploy-gp": "ng build --prod --base-href https://spreadzp.github.io/happy-number"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +29,7 @@
     "@angular/platform-server": "8.2.0",
     "@angular/router": "8.2.0",
     "@truffle/contract": "^4.0.33",
+    "angular-cli-ghpages": "^0.6.2",
     "core-js": "2.5.7",
     "dotenv": "^8.2.0",
     "ethers": "^4.0.37",
