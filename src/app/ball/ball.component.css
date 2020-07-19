@@ -1,0 +1,33 @@
+ul, ol, dl {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 1.25em;
+  list-style-position: inside;
+  font-family: inherit;
+}
+span {
+  background: url(./../../assets/img/ball_background.png) no-repeat scroll 16px 9px transparent;
+  color: #FF6600;
+  display: inline-block;
+  font-family: "BebasNeueRegular";
+  font-size: 200%;
+  font-style: normal;
+  font-weight: bold;
+  height: 62px;
+  line-height: 175%;
+  margin-left: -16px;
+  margin-right: -11px;
+  text-align: center;
+  width: 68px;
+}
+.winningNumberBalls {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+@media (max-width: 410px) {
+  .winningNumberBalls {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+}

@@ -1,0 +1,139 @@
+ol, ul {
+  list-style: none;
+}
+
+.numbers .ball {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 10px #ccc inset;
+  -moz-box-shadow: 0 0 10px #ccc inset;
+  box-shadow: 0 0 10px #ccc inset;
+  background-color: #fff;
+  color: #000;
+  font-style: italic;
+  border: 1px solid #999;
+  font-weight: 700;
+  line-height: 29px
+}
+.numbers .ball {
+  position: relative;
+  animation: ballJiggle 1s 1;
+  animation-timing-function: ease-out;
+}
+.winNum2 {
+  animation-delay: .2s;
+}
+.winNum3 {
+  animation-delay: .4s;
+}
+.winNum4 {
+  animation-delay: .6s;
+}
+.winNum5 {
+  animation-delay: .8s;
+}
+
+.yellowBall {
+  background-color: #ffdf00;
+}
+.winNumMB {
+  animation-delay: 1.2s;
+}
+
+@keyframes ballJiggle {
+  0% {
+      opacity: 0;
+      top: -200px;
+      transform: scale(.5,1.1)
+  }
+
+  22% {
+      top: 0;
+      transform: scale(.6,1.1)
+  }
+
+  25% {
+      opacity: 1;
+      top: 10px;
+      transform: scale(1.1,.8)
+  }
+
+  35% {
+      top: -5px;
+      transform: scale(.9,1.1)
+  }
+
+  55% {
+      top: 2px;
+      transform: scale(1.05,.95)
+  }
+
+  100% {
+      top: 0;
+      transform: scale(1,1)
+  }
+}
+.numbers .ball {
+  text-align: center
+}
+@media only screen and (min-width: 641px) {
+   .numbers .ball {
+      height: 50px;
+      width: 50px;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px;
+      background-clip: padding-box;
+      line-height: 48px;
+      font-size: 2.5rem
+  }
+}
+
+@media only screen and (min-width: 401px) {
+   .numbers .ball {
+      width:3rem;
+      height: 3rem;
+      -webkit-border-radius: 1.5rem;
+      -moz-border-radius: 1.5rem;
+      border-radius: 1.5rem;
+      background-clip: padding-box;
+      font-size: 1.5rem;
+      line-height: 2.8rem;
+      font-weight: 700;
+      text-align: center;
+      background-color: #fff;
+      -webkit-box-shadow: 0 0 .75rem #ccc inset;
+      -moz-box-shadow: 0 0 .75rem #ccc inset;
+      box-shadow: 0 0 .75rem #ccc inset;
+      border: 1px solid #999;
+      color: #000;
+      display: inline-block;
+      padding: 0
+  }
+
+   .numbers .yellowBall {
+      width: 3rem;
+      height: 3rem;
+      -webkit-border-radius: 1.5rem;
+      -moz-border-radius: 1.5rem;
+      border-radius: 1.5rem;
+      background-clip: padding-box;
+      font-size: 1.5rem;
+      line-height: 2.8rem;
+      font-weight: 700;
+      text-align: center;
+      background-color: #ffdf00;
+      -webkit-box-shadow: 0 0 .75rem #ccc inset;
+      -moz-box-shadow: 0 0 .75rem #ccc inset;
+      box-shadow: 0 0 .75rem #ccc inset;
+      border: 1px solid #ccb200;
+      color: #000;
+      display: inline-block;
+      padding: 0
+  }
+}
