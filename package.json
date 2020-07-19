@@ -1,5 +1,5 @@
 {
-  "name": "angular-truffle-box",
+  "name": "happy-number",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -11,7 +11,8 @@
     "e2e": "ng e2e",
     "postinstall": "node patch.js",
     "c-mig": "truffle compile && truffle migrate",
-    "gan-cli": "ganache-cli -m 'puzzle crazy electric wide verify popular struggle latin genuine lawsuit thrive neck'"
+    "gan-cli": "ganache-cli -m 'puzzle crazy electric wide verify popular struggle latin genuine lawsuit thrive neck'",
+    "deploy-github-pages": "ng build --prod --baseHref='https://spreadzp.github.io/happy-number/'"
   },
   "private": true,
   "dependencies": {
