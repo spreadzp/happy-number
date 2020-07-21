@@ -5,6 +5,20 @@ ul, ol, dl {
   list-style-position: inside;
   font-family: inherit;
 }
+h2 {
+  color: #FF6600;
+
+}
+.blinking{
+  animation:blinkingText 2s infinite;
+}
+@keyframes blinkingText{
+  0%{     color: yellow;    }
+  49%{    color: green; }
+  60%{    color: #FF6600; }
+  99%{    color: red;  }
+  100%{   color: #FF6600;    }
+}
 span {
   background: url(./../../assets/img/ball_background.png) no-repeat scroll 16px 9px transparent;
   color: #FF6600;
@@ -19,6 +33,11 @@ span {
   margin-right: -11px;
   text-align: center;
   width: 68px;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+  }
 }
 .winningNumberBalls {
   display: grid;

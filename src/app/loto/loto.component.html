@@ -1,5 +1,31 @@
-<app-header></app-header>
-<button (click)="startJackPot()">Play</button>
-<app-ball></app-ball>
-<app-win-balls></app-win-balls>
-<app-footer></app-footer>
+<mat-sidenav-container class="example-container">
+  <!-- (opened)="events.push('open!')"
+               (closed)="events.push('close!')" -->
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <app-header></app-header>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="side-nav">
+      <button mat-mini-fab color="warn" aria-label="Example icon button with a menu icon" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="title-game">Guess the happy number</span>
+    </div> <div *ngIf="activePage === 'loto'">
+      <app-win-balls></app-win-balls>
+      <app-ball></app-ball>
+    </div>
+    <div *ngIf="activePage === 'statistic'">
+      <app-statistic></app-statistic>
+    </div>
+    <div  *ngIf="activePage === 'info'">
+      <app-info></app-info>
+    </div>
+    <div  *ngIf="activePage === 'rules'">
+      <app-rules></app-rules>
+
+    </div>
+
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

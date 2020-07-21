@@ -41,13 +41,13 @@ export class Web3Service {
       if (this.web3) {
         this.refreshAccounts();
       }
-    }, 100
+    }, 1000
     );
   }
 
   public async artifactsToContract(artifacts) {
     if (!this.web3) {
-      const delay = new Promise(resolve => setTimeout(resolve, 100));
+      const delay = new Promise(resolve => setTimeout(resolve, 1000));
       await delay;
       return await this.artifactsToContract(artifacts);
     }

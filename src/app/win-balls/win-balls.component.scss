@@ -1,7 +1,14 @@
 ol, ul {
   list-style: none;
 }
-
+.numbers {
+  background: yellowgreen;
+  color: #FF6600;
+  font-family: "BebasNeueRegular";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+}
 .numbers .ball {
   display: inline-block;
   height: 30px;
@@ -21,6 +28,7 @@ ol, ul {
   line-height: 29px
 }
 .numbers .ball {
+  margin: 10px;
   position: relative;
   animation: ballJiggle 1s 1;
   animation-timing-function: ease-out;

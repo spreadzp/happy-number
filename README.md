@@ -1,14 +1,5 @@
-# Truffle Box for Angular
+# Happy number the lottery game
 
-This Truffle Box provides a base for working with the Truffle Framework and Angular.
-It provides a basic working example of the MetaCoin contracts with Angular components.
-This project is generated with [Angular CLI](https://cli.angular.io/).
-
-## Prerequisites
-
-In order to run the Truffle box, you will need [Node.js](https://nodejs.org) (tested with version 10.x.y). This will include `npm`, needed
-to install dependencies. In order install these dependencies, you will also need [Python](https://www.python.org) (version 2.7.x) and
-[git](https://git-scm.com/downloads). You will also need the [MetaMask](https://metamask.io/) plugin for Chrome.
 
 ## Building
 
@@ -17,12 +8,7 @@ to install dependencies. In order install these dependencies, you will also need
   npm install -g truffle
   npm install -g @angular/cli
   npm install -g ganache-cli
-  ```
-
-2. Download the box.
-  ```bash
-  truffle unbox Quintor/angular-truffle-box
-  ```
+  ``` 
 
 3. Run your Ethereum client. For Ganache CLI:
   ```bash

@@ -3,47 +3,20 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LotoComponent } from './loto/loto.component';
-import {MetaSenderComponent} from './meta/meta-sender/meta-sender.component';
+import { MetaSenderComponent } from './meta/meta-sender/meta-sender.component';
+import { StatisticComponent } from './statistic/statistic.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
-    //   {
-    //     path: '',
-    //     loadChildren: () =>
-    //       import('./views/base/index/index.module').then((m) => m.IndexModule),
-    //   },
-    //   {
-    //     path: 'products',
-    //     loadChildren: () =>
-    //       import('./views/pages/product/product.module').then(
-    //         (m) => m.ProductModule
-    //       ),
-    //   },
-    //   {
-    //     path: 'users',
-    //     loadChildren: () =>
-    //       import('./views/pages/user/user.module').then((m) => m.UserModule),
-    //   },
-    //   {
-    //     path: 'task-board',
-    //     loadChildren: () =>
-    //       import('./views/pages/task-board/task-board.module').then(
-    //         (m) => m.TaskBoardModule
-    //       ),
-    //   },
-    ],
-  },
+  { path: '', component: LotoComponent },
+  { path: 'statistic', component: StatisticComponent },
   { path: 'meta', component: MetaSenderComponent },
-  
   { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabled'
-})],
+  })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

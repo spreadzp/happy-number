@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import {MetaModule} from './meta/meta.module';
+import { MetaModule } from './meta/meta.module';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -12,7 +12,11 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSidenavModule,
+  MatListModule,
+  MatIconModule,
+  MatTableModule
 } from '@angular/material';
 import { LotoComponent } from './loto/loto.component';
 import { HeaderComponent } from './header/header.component';
@@ -23,6 +27,11 @@ import { BallComponent } from './ball/ball.component';
 import { WinBallsComponent } from './win-balls/win-balls.component';
 import { LotoService } from './util/loto.service';
 import { JpService } from './util/jp.service';
+import { FinishComponent } from './finish/finish.component';
+import { StatisticComponent } from './statistic/statistic.component';
+import { ShowPageService } from './util/showPage.service';
+import { InfoComponent } from './info/info.component';
+import { RulesComponent } from './rules/rules.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +41,11 @@ import { JpService } from './util/jp.service';
     FooterComponent,
     PageNotFoundComponent,
     BallComponent,
-    WinBallsComponent
+    WinBallsComponent,
+    FinishComponent,
+    StatisticComponent,
+    InfoComponent,
+    RulesComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -46,9 +59,13 @@ import { JpService } from './util/jp.service';
     FormsModule,
     HttpClientModule,
     MetaModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatTableModule
   ],
-  providers: [LotoService, JpService],
+  providers: [LotoService, JpService, ShowPageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

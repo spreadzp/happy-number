@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { Gamer } from '../shared/gamer.interface';
 @Injectable({
   providedIn: "root",
 })
@@ -10,6 +11,9 @@ export class LotoService {
   backetBoughtBalls = [];
   private boughtBallsSource$ = new BehaviorSubject(this.backetBoughtBalls);
   boughtBalls = this.boughtBallsSource$.asObservable();
+  gamersTickets: Gamer[] = [];
+  private gamersTicketsSource$ = new BehaviorSubject(this.gamersTickets);
+  gamersTicketsOfGame = this.gamersTicketsSource$.asObservable();
   constructor() {}
   buyBall(numberBall: number) {
     this.balls = this.balls.filter((i) => i !== numberBall);
@@ -29,20 +33,31 @@ export class LotoService {
     return this.boughtBallsSource$.next(this.backetBoughtBalls);
   }
   addBallToBacket(numberBall: number) {
-    this.backetBoughtBalls.push(numberBall);
-    this.backetBoughtBalls.sort();
-    return this.boughtBallsSource$.next(this.backetBoughtBalls);
+    if (!this.backetBoughtBalls.includes(numberBall)) {
+      this.backetBoughtBalls.push(numberBall);
+      this.backetBoughtBalls.sort();
+      return this.boughtBallsSource$.next(this.backetBoughtBalls);
+    }
+
   }
   setFreeTickets(tickets: string[]) {
     this.balls = [];
-    tickets.map((address, ind, arr) => {
-      // console.log('1ind :>> ', ind);
-      if (address === '0x0000000000000000000000000000000000000000') {
-        // console.log('2ind ', ind, ':', arr[ind]);
-        this.balls.push(ind + 1);
+    tickets.filter ((ticket, ind, arr) => {
+      if (ticket === '0x0000000000000000000000000000000000000000') {
+        this.balls.push(ind);
 
       }
     });
     return this.ballsSource$.next(this.balls);
+  }
+  getStatisticGame(tickets: string[]) {
+    this.gamersTickets = [];
+    tickets.filter ((address, ind, arr) => {
+      if (address !== '0x0000000000000000000000000000000000000000') {
+        const gamer: Gamer = {addressGamer: address, numberTicket: ind };
+        this.gamersTickets.push(gamer);
+      }
+    });
+    return this.gamersTicketsSource$.next(this.gamersTickets);
   }
 }

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity >=0.4.21 < 0.7.0;
 
 
 contract IFactRegistry {
@@ -364,7 +364,31 @@ contract LotteryToken is Ownable, Token {
     }
 }
 
-contract JackPotLottery is LotteryToken {
+contract GameStatistics {
+struct GamerResult {
+  uint256 numberGame;
+  uint256 gamerPrize;
+  }
+  mapping (address => GamerResult[]) public  gamerResults;
+  uint256[] numberGames;
+  uint256[] prizeInGames;
+  // uint256 [][] public gamerResults;
+  function getResults (address gamerAddress) public returns (uint256[] memory , uint256[] memory ) {
+    GamerResult[] memory results = gamerResults[gamerAddress];
+    uint256 lengthResult = results.length;
+
+    for (uint8 i = 0; i < lengthResult; i++) {
+      numberGames.push(results[i].numberGame);
+      prizeInGames.push(results[i].gamerPrize);
+    }
+    return (numberGames, prizeInGames);
+  }
+  function setWinnerResults (address gamerAddress, uint256 numberWinGame, uint256 gamerWinPrize ) public {
+    GamerResult memory newResult = GamerResult(numberWinGame, gamerWinPrize);
+    gamerResults[gamerAddress].push(newResult);
+  }
+}
+contract JackPotLottery is LotteryToken, GameStatistics {
     using SafeMath for uint256;
 
     address[100] public tickets;
@@ -374,6 +398,7 @@ contract JackPotLottery is LotteryToken {
     uint256 public toJackPotFromEveryTicket = 4;
     uint256 public xPrize = 2;
     uint256 public lastWinNumber;
+    uint256 public numberGame = 0;
 
     event WinnersLotteriesNumbers(uint256 jackPotNumber, uint256 winnerMinNumber, uint256 winnerMaxNumber);
     event LotteryBought(uint256 LotteryNumber);
@@ -394,12 +419,14 @@ contract JackPotLottery is LotteryToken {
     }
 
     function play() public onlyOwner {
-        BeaconContract beacon = BeaconContract(0x79474439753C7c70011C3b00e06e559378bAD040);
+
+        //BeaconContract beacon = BeaconContract(0x79474439753C7c70011C3b00e06e559378bAD040);
         // lastWinNumber = uint256(blockhash(block.number - 1)) % countTickets + 1;
-        (uint256 t , bytes32 rndNumber) = beacon.getLatestRandomness();
-        lastWinNumber = uint256(rndNumber) % countTickets + 1;
+        //(uint256 t , bytes32 rndNumber) = beacon.getLatestRandomness();
+        lastWinNumber = uint8(uint256(keccak256(abi.encode(block.timestamp, block.difficulty))) % countTickets + 1);
         if(tickets[lastWinNumber] != address(0)) {
             balanceOf[tickets[lastWinNumber]] = balanceOf[tickets[lastWinNumber]].add(jackPot);
+            setWinnerResults (tickets[lastWinNumber],numberGame, jackPot);
             jackPot = 0;
         }
 
@@ -410,6 +437,7 @@ contract JackPotLottery is LotteryToken {
         for (uint256 i = minNumberOfWin; i < maxNumWin; i++) {
             if(tickets[i] != address(0)) {
                 balanceOf[tickets[i]] = balanceOf[tickets[i]].add(ticketPrice * xPrize);
+                setWinnerResults (tickets[i],numberGame, ticketPrice * xPrize );
             }
         }
         emit WinnersLotteriesNumbers(lastWinNumber, minNumberOfWin, maxNumWin);
@@ -427,6 +455,7 @@ contract JackPotLottery is LotteryToken {
     }
 
     function clearTickets() private {
+        numberGame++;
         for (uint256 j = 0; j < countTickets; j++) {
             tickets[j] = address(0);
         }
