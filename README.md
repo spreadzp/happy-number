@@ -8,17 +8,19 @@
   npm install -g truffle
   npm install -g @angular/cli
   npm install -g ganache-cli
+  npm i
+  
+
   ``` 
 
 3. Run your Ethereum client. For Ganache CLI:
   ```bash
-  ganache-cli
-  ```
-Note the mnemonic 12-word phrase printed on startup, you will need it later.
+  npm run gan-cli
+  ``` 
 
 4. Compile and migrate your contracts.
   ```bash
-  truffle compile && truffle migrate
+ npm run c-mig
   ```
 
 ## Configuration
@@ -40,7 +42,7 @@ The app is now served on localhost:4200
 
 2. Making sure you have configured MetaMask, visit http://localhost:4200 in your browser.
 
-3. Send MetaCoins!
+3. Send play to the Game!
 
 ## Testing
 
@@ -52,41 +54,11 @@ The app is now served on localhost:4200
 2. Running the Truffle tests:
   ```bash
   truffle test
-  ```
-
-3. Running Protactor end-to-end tests
-
-  ```bash
-  ng e2e
-  ```
+  ``` 
 ## Releasing
 Using the Angular CLI you can build a distributable of your app. Will be placed in `dist/`
 
   ```bash
   ng build
   ```
-
-## FAQ
-
-* __Where can I find more documentation?__
-
-This Truffle box is a union of [Truffle](http://truffleframework.com/) and an Angular setup created with [Angular CLI](https://cli.angular.io/).
-For solidity compilation and Ethereum related issues, try the [Truffle documentation](http://truffleframework.com/docs/).
-For Angular CLI and typescript issues, refer to the [Angular CLI documentation](https://github.com/angular/angular-cli/wiki)
-
-* __Common errors and their solutions__
-
-| Error | Solution |
-|-------|----------|
-| `Module not found: Error: Can't resolve '../../../../build/contracts/MetaCoin.json'` during `ng serve` | Run `truffle compile` |
-| `Error: the tx doesn't have the correct nonce.` in MetaMask | Reset MetaMask: Settings -> Reset Account |
-| `Error getting balance; see log.` in UI, with `Error: MetaCoin has not been deployed to detected network (network/artifact mismatch)` in browser console | Ensure you have started ganache, run `truffle migrate` and configured MetaMask to point to ganache |
-
-
-
-* __How do I get this to work on Windows?__
-
-Possible issues:
-
-- If you're missing a C++ compiler, run `npm install --global --production windows-build-tools` in a cmd with administrative rights.
-- If the `truffle.js` file opens when you're trying to run truffle commands, rename the file to `truffle-config.js`
+ 

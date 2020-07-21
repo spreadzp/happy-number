@@ -3,5 +3,4 @@
   <div>You have tickets:</div>
   <div *ngFor="let bball of backetOfBalls; let i = index" class="ball"
    (click)="returnBall(bball)" [style.animation-delay]="setDelay(i)">{{bball}}</div>
-
 </div>

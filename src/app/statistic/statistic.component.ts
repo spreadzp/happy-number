@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShowPageService } from '../util/showPage.service';
 import { LotoService } from '../util/loto.service';
 import { Gamer } from '../shared/gamer.interface';
-import { JpService } from "../util/jp.service";
+import { JpService } from '../util/jp.service';
 
 @Component({
   selector: 'app-statistic',

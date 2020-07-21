@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable} from "rxjs";
-import { Web3Service } from "./web3.service";
-import { LotoService } from "./loto.service";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable} from 'rxjs';
+import { Web3Service } from './web3.service';
+import { LotoService } from './loto.service';
 import { debounceTime } from 'rxjs/operators';
 
 declare let require: any;
-const jackPot_artifacts = require("./../../../build/contracts/JackPotLottery.json");
+const jackPot_artifacts = require('./../../../build/contracts/HappyLottery.json');
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class JpService {
   accounts = [];
@@ -62,12 +62,11 @@ export class JpService {
   }
 
   setJpAbstraction() {
-    // const t = this.web3Service.artifactsToContract(jackPot_artifacts).asObservable();
     return this.web3Service
       .artifactsToContract(jackPot_artifacts)
       .then(async (JackPotAbstraction) => {
-        return JackPotAbstraction.deployed();
+        // return JackPotAbstraction.deployed();
+        return JackPotAbstraction.at('0xeCB6a73169ECbF67629eEbcE3608E55ed7e68180');
       });
-    // return t.subscribe(JackPotAbstraction => JackPotAbstraction.deployed().asObservable());
   }
 }

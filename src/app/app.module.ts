@@ -2,9 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
-import { MetaModule } from './meta/meta.module';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -16,7 +14,8 @@ import {
   MatSidenavModule,
   MatListModule,
   MatIconModule,
-  MatTableModule
+  MatTableModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { LotoComponent } from './loto/loto.component';
 import { HeaderComponent } from './header/header.component';
@@ -32,6 +31,7 @@ import { StatisticComponent } from './statistic/statistic.component';
 import { ShowPageService } from './util/showPage.service';
 import { InfoComponent } from './info/info.component';
 import { RulesComponent } from './rules/rules.component';
+import { Web3Service } from './util/web3.service';
 
 @NgModule({
   declarations: [
@@ -58,14 +58,14 @@ import { RulesComponent } from './rules/rules.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    MetaModule,
     AppRoutingModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
-  providers: [LotoService, JpService, ShowPageService],
+  providers: [Web3Service, LotoService, JpService, ShowPageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
