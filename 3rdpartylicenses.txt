@@ -87,17 +87,13 @@ THE SOFTWARE.
 
 @angular/material/button
 
-@angular/material/card
+@angular/material/icon
 
-@angular/material/core
-
-@angular/material/form-field
-
-@angular/material/select
+@angular/material/sidenav
 
 @angular/material/snack-bar
 
-@angular/material/toolbar
+@angular/material/table
 
 @angular/platform-browser
 MIT
