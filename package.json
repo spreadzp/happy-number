@@ -13,7 +13,7 @@
     "postinstall": "node patch.js",
     "c-mig": "truffle compile && truffle migrate --reset",
     "gan-cli": "ganache-cli -m 'puzzle crazy electric wide verify popular struggle latin genuine lawsuit thrive neck'",
-    "deploy-github-pages": "ng build --prod --baseHref='https://spreadzp.github.io/happy-number/'",
+    "deploy-github-pages": "ng build --prod --base-href https://spreadzp.github.io/happy-number/ --deploy-url=https://spreadzp.github.io/happy-number/",
     "deploy-gp": "ng deploy --base-href=/happy-number/"
   },
   "private": true,

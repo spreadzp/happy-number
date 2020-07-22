@@ -1,8 +1,10 @@
 <!-- <mat-toolbar >Guess the happy number</mat-toolbar> -->
 <div class="panel-buttons">
   <button mat-raised-button (click)="changePage('loto')">Game</button>
+  <button mat-raised-button (click)="changePage('exchange')">Exchange</button>
   <button mat-raised-button (click)="changePage('rules')">Rules</button>
-  <button mat-raised-button (click)="startJackPot()">Finish</button>
+  <button [disabled]="!isOwner()" mat-raised-button (click)="startJackPot()">Finish</button>
   <button mat-raised-button (click)="changePage('statistic')">Statistic</button>
   <button mat-raised-button (click)="changePage('info')">Info</button>
 </div>
+<!-- [disabled]="activeAccount === owner" -->

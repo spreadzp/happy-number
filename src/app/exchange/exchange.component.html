@@ -1,0 +1,19 @@
+<div class="content">
+  <app-balance></app-balance>
+  <form class="exch">
+    <div class="amount">
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter amount tokens SLT for sell or buy</mat-label>
+        <input matInput placeholder="15"  [formControl]="amount" (change)="onAmountChange()" />
+      </mat-form-field>
+    </div>
+    <div class="buttons">
+      <button mat-raised-button class="btn-buy" (click)="buyTokenSLT(tokens)" [style.disabled]="tokens !== 0">
+        Byu
+      </button>
+      <button mat-raised-button class="btn-sell" (click)="sellTokenSLT(tokens)" [style.disabled]="tokens !== 0">
+        Sell
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
@@ -32,6 +32,8 @@ import { ShowPageService } from './util/showPage.service';
 import { InfoComponent } from './info/info.component';
 import { RulesComponent } from './rules/rules.component';
 import { Web3Service } from './util/web3.service';
+import { BalanceComponent } from './balance/balance.component';
+import { ExchangeComponent } from './exchange/exchange.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { Web3Service } from './util/web3.service';
     FinishComponent,
     StatisticComponent,
     InfoComponent,
-    RulesComponent
+    RulesComponent,
+    BalanceComponent,
+    ExchangeComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -57,6 +61,7 @@ import { Web3Service } from './util/web3.service';
     MatToolbarModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     MatSidenavModule,
@@ -66,6 +71,6 @@ import { Web3Service } from './util/web3.service';
     MatSnackBarModule
   ],
   providers: [Web3Service, LotoService, JpService, ShowPageService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -45,6 +45,13 @@ export class Web3Service {
     );
   }
 
+  public toWei (value: number) {
+    if (this.web3) {
+    const bntokens = this.web3.utils.toBN(value);
+    console.log('@@@@bntokens:>> ', value);
+    return this.web3.utils.fromWei(value.toString(), 'ether');
+    }
+  }
   public async artifactsToContract(artifacts) {
     if (!this.web3) {
       const delay = new Promise(resolve => setTimeout(resolve, 1000));

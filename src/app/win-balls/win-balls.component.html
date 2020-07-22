@@ -1,6 +1,8 @@
 
-<div class="numbers" *ngIf="backetOfBalls.length > 0">
-  <div>You have tickets:</div>
-  <div *ngFor="let bball of backetOfBalls; let i = index" class="ball"
+<div class="numbers" >
+  <app-balance></app-balance>
+  <div *ngIf="backetOfBalls.length > 0"><span>You have tickets:</span>
+    <div *ngFor="let bball of backetOfBalls; let i = index" class="ball"
    (click)="returnBall(bball)" [style.animation-delay]="setDelay(i)">{{bball}}</div>
+  </div>
 </div>

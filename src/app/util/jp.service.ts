@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Web3Service } from './web3.service';
 import { LotoService } from './loto.service';
 import { debounceTime } from 'rxjs/operators';
@@ -65,8 +65,8 @@ export class JpService {
     return this.web3Service
       .artifactsToContract(jackPot_artifacts)
       .then(async (JackPotAbstraction) => {
-        // return JackPotAbstraction.deployed();
-        return JackPotAbstraction.at('0xeCB6a73169ECbF67629eEbcE3608E55ed7e68180');
+        return JackPotAbstraction.deployed();
+        // return JackPotAbstraction.at('0x850f1de6f84fc3e2ad7d8615ca5c32435f7d35f9');
       });
   }
 }

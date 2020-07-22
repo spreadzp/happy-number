@@ -16,3 +16,8 @@ mat-sidenav {
 .mat-drawer-container {
   height: 100vh;
 }
+@media (max-width: 410px) {
+  .title-game {
+    font-size: 100%;
+  }
+}
