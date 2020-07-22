@@ -1,5 +1,9 @@
 # Happy number the lottery game
 
+The game is deployed on the host https://spreadzp.github.io/happy-number/
+Smart contract HappyLottery is deployed on the Ropsten testnet at 0xfd6c41cd602681d9788234e4e56ff4bee86e55a9. It uses the BeaconContract smart contract from the Ropsten network (address 0x79474439753C7c70011C3b00e06e559378bAD040) to get a random number at the end of the game
+project code : https://github.com/spreadzp/happy-number
+
 [Lottery.pptx](https://github.com/spreadzp/happy-number/files/4960762/Lottery.pptx)
 
 ## Building
