@@ -419,13 +419,10 @@ contract HappyLottery is LotteryToken, GameStatistics {
     }
 
     function play() public onlyOwner {
-
-      //BeaconContract beacon = BeaconContract(0x79474439753C7c70011C3b00e06e559378bAD040);
       //lastWinNumber = uint256(blockhash(block.number - 1)) % countTickets + 1;
-      //(uint256 t , bytes32 rndNumber) = beacon.getLatestRandomness();
-    //   BeaconContract beacon = BeaconContract(0x79474439753C7c70011C3b00e06e559378bAD040);
-    //   (, bytes32 rndHash) = beacon.getLatestRandomness();
-    //   lastWinNumber = uint256(rndHash) % countTickets + 1;
+    BeaconContract beacon = BeaconContract(0x79474439753C7c70011C3b00e06e559378bAD040);
+    (, bytes32 rndHash) = beacon.getLatestRandomness();
+    lastWinNumber = uint256(rndHash) % countTickets + 1;
       lastWinNumber = uint8(uint256(keccak256(abi.encode(block.timestamp, block.difficulty))) % countTickets + 1);
       if(tickets[lastWinNumber] != address(0)) {
           balanceOf[tickets[lastWinNumber]] = balanceOf[tickets[lastWinNumber]].add(jackPot);

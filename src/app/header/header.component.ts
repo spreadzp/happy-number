@@ -53,11 +53,7 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   startJackPot() {
     this.jpService.getJpContract().subscribe((deployed) => {
       const t = deployed.then((contract) => {
-        console.log('@contract :>> ', contract);
-        console.log('this.owner :>> ', this.owner);
         contract.play({ from: this.owner, gas: 600000 }).then((result) => {
-          // set current address !!!
-          console.log('result :>> ', result);
           this.jpService.checkFreeTickets();
           console.log('result.logs[0] :>> ', result.logs[0]);
           const gameOverMessage = `The lottery ${this.nubmerGame} is finished. JackPot number ${result.logs[0].args.jackPotNumber}!

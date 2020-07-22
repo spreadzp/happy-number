@@ -65,8 +65,8 @@ export class JpService {
     return this.web3Service
       .artifactsToContract(jackPot_artifacts)
       .then(async (JackPotAbstraction) => {
-        return JackPotAbstraction.deployed();
-        // return JackPotAbstraction.at('0x850f1de6f84fc3e2ad7d8615ca5c32435f7d35f9');
+        // return JackPotAbstraction.deployed();
+        return JackPotAbstraction.at('0xfd6c41cd602681d9788234e4e56ff4bee86e55a9');
       });
   }
 }
